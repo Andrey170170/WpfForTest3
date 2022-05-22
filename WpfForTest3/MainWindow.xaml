@@ -1,0 +1,89 @@
+﻿<Window x:Class="WpfForTest3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfForTest3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="bottomPlanel">
+            <Setter Property="WrapPanel.VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="WrapPanel.MaxHeight" Value="30"></Setter>
+            <Setter Property="WrapPanel.Margin" Value="10 0 0 10"></Setter>
+            <Setter Property="WrapPanel.ZIndex" Value="1001"></Setter>
+        </Style>
+        <Style x:Key="topPanel" TargetType="WrapPanel">
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style TargetType="Border" x:Key="StyleBorder">
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="VerticalAlignment" Value="top"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="0 10 0 0"></Setter>
+            <Setter Property="MaxWidth" Value="500"></Setter>
+        </Style>
+        <Style TargetType="Border" x:Key="innerBorder" BasedOn="{StaticResource StyleBorder}">
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+        </Style>
+        <Style TargetType="Image">
+            <Setter Property="Width" Value="75"></Setter>
+        </Style>
+    </Window.Resources>
+    <DockPanel x:Name="DockPanel">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem x:Name="Styles" Header="_Styles" MouseEnter="Styles_OnMouseEnter" MouseLeave="ChangeColor_MouseLeave">
+                <MenuItem Name="ChangeColor" Header="_ChangeColor" MouseEnter="ChangeColor_MouseEnter"
+                          MouseLeave="ChangeColor_MouseLeave" Click="ChangeColor_OnClick">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="Links" Header="_Links" MouseEnter="Links_OnMouseEnter" MouseLeave="ChangeColor_MouseLeave">
+                <MenuItem Name="CatalogGoods" Header="_CatalogGoods" MouseEnter="CatalogGoods_OnMouseEnter"
+                          MouseLeave="ChangeColor_MouseLeave" Click="CatalogGoods_OnClick">
+                </MenuItem>
+                <MenuItem Name="ServiceCatalog" Header="_ServiceCatalog" MouseEnter="ServiceCatalog_OnMouseEnter"
+                          MouseLeave="ChangeColor_MouseLeave" Click="ServiceCatalog_OnClick">
+                </MenuItem>
+                <MenuItem Name="AboutUs" Header="_AboutUs" MouseEnter="AboutUs_OnMouseEnter"
+                          MouseLeave="ChangeColor_MouseLeave" Click="AboutUs_OnClick">
+                </MenuItem>
+                <MenuItem Name="FindUs" Header="_FindUs" MouseEnter="FindUs_OnMouseEnter"
+                          MouseLeave="ChangeColor_MouseLeave" Click="FindUs_OnClick">
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <Border DockPanel.Dock="Top" Style="{StaticResource StyleBorder}">
+            <WrapPanel Style="{StaticResource topPanel}">
+                <Border Style="{StaticResource innerBorder}">
+                    <Image Source="C:\Users\24122\Desktop\колледж\зачет\рпм\1макет.jpg"></Image>
+                </Border>
+                <Border Style="{StaticResource innerBorder}">
+                    <Image Source="C:\Users\24122\Desktop\колледж\зачет\рпм\1макет.jpg"></Image>
+                </Border>
+                <Border Style="{StaticResource innerBorder}">
+                    <Image Source="C:\Users\24122\Desktop\колледж\зачет\рпм\1макет.jpg"></Image>
+                </Border>
+                <Border Style="{StaticResource innerBorder}">
+                    <Image Source="C:\Users\24122\Desktop\колледж\зачет\рпм\1макет.jpg"></Image>
+                </Border>
+            </WrapPanel>
+        </Border>
+        <Border Style="{StaticResource StyleBorder}" DockPanel.Dock="Top">
+            <WrapPanel Style="{StaticResource topPanel}">
+                <TextBlock TextWrapping="Wrap" FontSize="{Binding ElementName=textSlider, Path=Value}">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis nunc nec tincidunt congue. Curabitur iaculis nunc nec pulvinar consequat. Ut nec finibus felis. Sed nec lacus tortor. Morbi a bibendum nisl. Curabitur egestas lorem vitae vehicula consequat. Phasellus tempor lacus in orci eleifend, id aliquet velit porta. Sed auctor vitae elit pharetra semper. Quisque consequat varius mauris sed sodales. Phasellus eleifend, leo quis fringilla imperdiet, ipsum nunc interdum libero, vel rutrum velit elit tristique lorem. Duis ac odio vitae lacus eleifend elementum ac ac nisi.
+                    Sed mattis tellus diam, in scelerisque odio semper ut. Duis convallis at ipsum id eleifend. Sed laoreet diam non pharetra ultricies. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam arcu elit, placerat a est a, eleifend tincidunt massa. Fusce eros quam, finibus a scelerisque sit amet, ullamcorper dignissim tellus. Fusce rutrum metus sit amet dui varius pretium. Curabitur tristique tempus velit imperdiet euismod. Ut elementum, lacus quis interdum lacinia, enim quam aliquam dui, non convallis ligula mi eget quam. Phasellus faucibus ipsum vel tincidunt consequat. Donec ultrices imperdiet ipsum, a fringilla turpis volutpat ac. Nunc eleifend accumsan lectus blandit condimentum. Fusce id laoreet quam.
+                </TextBlock>
+            </WrapPanel>
+        </Border>
+        <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Left" Style="{StaticResource bottomPlanel}" ZIndex="1002">
+            <Label Name="StateString"></Label>
+        </WrapPanel>
+        <WrapPanel DockPanel.Dock="Bottom" Style="{StaticResource bottomPlanel}">
+            <Slider Name="textSlider" Minimum="10" Maximum="20" MinWidth="100"></Slider>
+        </WrapPanel>
+    </DockPanel>
+</Window>
